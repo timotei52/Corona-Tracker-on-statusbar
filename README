@@ -1,0 +1,9 @@
+This is a script i wrote so i can follow the sprea of covid19 in my country on my statusbar
+Just make the scripts executables and move the corona file to /usr/bin (you'll need to be 
+sudo).Run the Genfile in order to make a cache otherwise it won't work.
+The default country is Italy.You can edit the genfie yourself to change it or you can
+run "corona changecountry" once you move the "corona" file to /usr/bin to change it.This 
+will work even when the bar is running .
+I could not make the script without https://github.com/sagarkarira/coronavirus-tracker-cli/
+wich is more useful to people in general and i recommend checking it out.
+I also have an example config for i3blocks.

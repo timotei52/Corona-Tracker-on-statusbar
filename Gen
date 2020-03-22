@@ -1,0 +1,9 @@
+#!/bin/sh
+mkdir ~/.cache/corona
+touch ~/.cache/corona/corona
+touch ~/.cache/corona/country
+echo "Italy" > ~/.cache/corona/country
+#default country is italy
+curl https://corona-stats.online > ~/.cache/corona/COR
+touch ~/.cache/corona/list
+echo $(cat ~/.cache/corona/COR | sed "s/│//g" | sed "s/═//g" | sed "s/┼//g" | sed "s/║//g" | awk '{print $4}'| sed 's/\x1b\[[0-9;]*m//g') > ~/.cache/corona/list

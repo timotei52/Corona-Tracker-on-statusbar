@@ -1,0 +1,30 @@
+#!/bin/sh
+
+if [ "$1" = "changecountry" ]
+then
+ echo [*]Country Name:
+ read country
+ if grep -Fq $country ~/.cache/corona/list
+ then
+  echo [*]Situation in $country :
+  echo $country>~/.cache/corona/country
+  rm ~/.cache/corona/corona
+ else
+    echo Country Invalid
+ fi
+fi
+ a1=$(date | awk '{print $2 " "$3" " $4}') 
+ a2=$(grep "Mar" ~/.cache/corona/corona | awk '{print $5}' | sed "s/-/ /g")
+ country=$(cat ~/.cache/corona/country)
+ if [ "$a1" = "$a2" ]
+ then
+   grep "$country" ~/.cache/corona/corona | sed "s/ //g" | sed "s/│/ /g" |awk '{print"Infected:" $3 " Recovered: "$4" Deaths:"$5 " Active: "$6" Mortality rate:"$7 "%""Recovery rate:" $8"%"}'
+ elif ping -q -c 1 -W 1 8.8.8.8 > /dev/null
+ then
+    echo [*]Cache empty or invalid downloading new data...
+    curl https://corona-stats.online/"$country" | sed 's/\x1b\[[0-9;]*m//g' > ~/.cache/corona/corona
+    #bash check
+    grep "$country" ~/.cache/corona/corona | sed "s/ //g" | sed "s/│/ /g" |awk '{print"Infected:" $3 " Recovered: "$4" Dead:"$5 " Active: "$6" Mortality rate:"$7 "% ""Rate of recovery:" $8"%"}'
+ else
+    echo [*]Internet down and cache is not valid
+ fi
