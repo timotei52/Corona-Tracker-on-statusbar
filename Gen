@@ -7,3 +7,5 @@ echo "Italy" > ~/.cache/corona/country
 curl https://corona-stats.online > ~/.cache/corona/COR
 touch ~/.cache/corona/list
 echo $(cat ~/.cache/corona/COR | sed "s/│//g" | sed "s/═//g" | sed "s/┼//g" | sed "s/║//g" | awk '{print $4}'| sed 's/\x1b\[[0-9;]*m//g') > ~/.cache/corona/list
+chmod +x corona
+sudo cp corona /usr/bin/coronavirus
