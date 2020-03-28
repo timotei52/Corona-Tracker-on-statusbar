@@ -24,7 +24,7 @@ fi
     echo [*]Cache empty or invalid downloading new data...
     curl https://corona-stats.online/"$country" | sed 's/\x1b\[[0-9;]*m//g' > ~/.cache/corona/corona
     #bash check
-    grep "$country" ~/.cache/corona/corona | sed "s/ //g" | sed "s/│/ /g" |awk '{print"Infected:" $3 " Recovered: "$4" Dead:"$5 " Active: "$6" Mortality rate:"$7 "% ""Rate of recovery:" $8"%"}'
+    grep "$country" ~/.cache/corona/corona | sed "s/ //g" | sed "s/│/ /g" |awk '{print"Infected:" $3 " Recovered: "$5" Dead:"$4 " Active: "$6 "}'
  else
     echo [*]Internet down and cache is not valid
  fi
