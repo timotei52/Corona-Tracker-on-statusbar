@@ -18,7 +18,7 @@ fi
  country=$(cat ~/.cache/corona/country)
  if [ "$a1" = "$a2" ]
  then
-   grep "$country" ~/.cache/corona/corona | sed "s/ //g" | sed "s/│/ /g" |awk '{print"Infected:" $3 " Recovered: "$4" Deaths:"$5 " Active: "$6" Mortality rate:"$7 "%""Recovery rate:" $8"%"}'
+   grep "$country" ~/.cache/corona/corona | sed "s/ //g" | sed "s/│/ /g" |awk '{print"Infected:" $3 " Recovered: "$5" Deaths:"$4 " Active: "$6 "}'
  elif ping -q -c 1 -W 1 8.8.8.8 > /dev/null
  then
     echo [*]Cache empty or invalid downloading new data...
