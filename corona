@@ -14,7 +14,7 @@ then
  fi
 fi
  a1=$(date | awk '{print $2 " "$3" " $4}') 
- a2=$(grep "Mar" ~/.cache/corona/corona | awk '{print $4}' | sed "s/-/ /g")
+ a2=$(grep "2020" ~/.cache/corona/corona | awk '{print $4}' | sed "s/-/ /g")
  country=$(cat ~/.cache/corona/country)
  if [ "$a1" = "$a2" ]
  then
